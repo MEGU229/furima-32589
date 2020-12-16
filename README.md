@@ -6,7 +6,7 @@
 | ---------------- | ------ | ----------------------- |
 |     nickname     | string |      null: false        |
 |       email      | string |null: false, unique: true|
-|      password    | string |       null: false       |
+|encrypted_password| string |       null: false       |
 |     first_name   | string |       null: false       |
 |    last_name     | string |       null: false       |
 |first_name_reading| string |       null: false       |
@@ -20,16 +20,16 @@
 
 ## items テーブル
 
-|     Column    |   Type   |     Options     |
-| ------------- | -------- | --------------- |
-|      name     |  string  |   null: false   |
-|      text     |   text   |   null: false   |
-|     price     | integer  |   null: false   |
-|    category   | integer  |   null: false   |
-|  condition    | integer  |   null: false   |
-|shipping_cost  | integer  |   null: false   |
-|shipment_source| integer  |   null: false   |
-| days_to_ship  |   date   |   null: false   |
+|      Column      |   Type   |     Options     |
+| ---------------- | -------- | --------------- |
+|       name       |  string  |   null: false   |
+|       text       |   text   |   null: false   |
+|      price       | integer  |   null: false   |
+|   category_id    | integer  |   null: false   |
+|   condition_id   | integer  |   null: false   |
+| shipping_cost_id | integer  |   null: false   |
+|shipment_source_id| integer  |   null: false   |
+| days_to_ship_id  | integer  |   null: false   |
 |      user     |references|foreign_key: true|
 
 ### Association
@@ -54,11 +54,12 @@
 
 |     Column     |   Type   |    Options      |
 | -------------- | -------- | --------------- |
-|   post_code    |   string |   null: false   |
+|   post_code    |  string  |   null: false   |
 |  prefectures   |  integer |   null: false   |
 |      city      |  string  |   null: false   |
 |  house_number  |  string  |   null: false   |
-|  building_name |  string  |   null: false   |
+|  building_name |  string  |                 |
+|      tel       |  string  |   null: false   |
 |      user      |references|foreign_key: true|
 
 ### Association
