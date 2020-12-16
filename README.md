@@ -48,14 +48,14 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :addresses
+- has_one :address
 
 ## addresses テーブル
 
 |     Column     |   Type   |    Options      |
 | -------------- | -------- | --------------- |
 |   post_code    |  string  |   null: false   |
-|  prefectures   |  integer |   null: false   |
+| prefectures_id |  integer |   null: false   |
 |      city      |  string  |   null: false   |
 |  house_number  |  string  |   null: false   |
 |  building_name |  string  |                 |
