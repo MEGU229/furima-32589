@@ -28,9 +28,9 @@
 |   category_id    | integer  |   null: false   |
 |   condition_id   | integer  |   null: false   |
 | shipping_cost_id | integer  |   null: false   |
-|shipment_source_id| integer  |   null: false   |
+|  prefectures_id  | integer  |   null: false   |
 | days_to_ship_id  | integer  |   null: false   |
-|      user     |references|foreign_key: true|
+|       user       |references|foreign_key: true|
 
 ### Association
 
