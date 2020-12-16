@@ -60,7 +60,7 @@
 |  house_number  |  string  |   null: false   |
 |  building_name |  string  |                 |
 |      tel       |  string  |   null: false   |
-|      user      |references|foreign_key: true|
+|     order      |references|foreign_key: true|
 
 ### Association
 
