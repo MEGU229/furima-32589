@@ -76,8 +76,14 @@ describe Item do
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
 
-      it "販売価格が半角数字でないと出品できない" do
+      it "販売価格が半角英数混合では出品できない" do
         @item.price = "1a00"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
+      end
+
+      it "販売価格が半角英語では出品できない" do
+        @item.price = "aaaa"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is not a number")
       end
