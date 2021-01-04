@@ -26,7 +26,6 @@ class ItemsController < ApplicationController
     if @item.user_id != current_user.id
       render :show
     end
-   end
   end
 
   def update
