@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
 
   def redirect_to_root_path
     if @item.user_id != current_user.id
-      render :show
+      redirect_to root_path
     end
   end
 end
