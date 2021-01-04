@@ -23,7 +23,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-   if user_signed_in?
     if @item.user_id != current_user.id
       render :show
     end
