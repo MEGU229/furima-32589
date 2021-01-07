@@ -11,6 +11,8 @@ class Form
     validates :token
     validates :user_id
     validates :item_id
+    validates :prefecture_id
+
   end
   
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }

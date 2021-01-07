@@ -96,9 +96,17 @@ describe  Form do
         expect(@form.errors.full_messages).to include("Item can't be blank")
       end
 
+      it "prefecture_idは空では購入できない" do
+        @form.item_id = ''
+        @form.valid?
+        expect(@form.errors.full_messages).to include("Item can't be blank")
+      end
 
-
-      
+      it "prefecture_idは空では購入できない" do
+        @form.item_id = ''
+        @form.valid?
+        expect(@form.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end

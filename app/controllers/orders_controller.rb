@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
 
   def index
     redirect_to root_path if @item.order != nil
+    redirect_to root_path if @item.user_id == current_user.id
     @form = Form.new
   end
 
