@@ -23,4 +23,6 @@ class Item < ApplicationRecord
   validates :shipping_cost_id
  end
 
+ has_one :order
+
 end
