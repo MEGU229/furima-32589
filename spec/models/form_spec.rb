@@ -14,6 +14,12 @@ describe  Form do
       it "建物名はあってもなくてもどちらでも可。建物名以外の各項目を正しく入力すれば購入できる" do
         expect(@form).to be_valid
       end
+
+      it "建物名はなくても購入できる" do
+        @form.building_name = ''
+        expect(@form).to be_valid
+      end
+
     end
 
     context '商品購入がうまくいかないとき' do
@@ -61,22 +67,38 @@ describe  Form do
       end
 
       it "telに『-』があると購入できない" do
-        @form.tel = 012-3456-7890
+        @form.tel = '012-3456-7890'
         @form.valid?
-        expect(@form.errors.full_messages).to include("Tel is invalid")
+        expect(@form.errors.full_messages).to include("Tel is too long (maximum is 11 characters)")
       end
 
       it "telが12桁以上だと購入できない" do
-        @form.tel = 123456789012
+        @form.tel = '123456789012'
         @form.valid?
-        expect(@form.errors.full_messages).to include("Tel is invalid")
+        expect(@form.errors.full_messages).to include("Tel is too long (maximum is 11 characters)")
       end
 
-      it "tokenが空では購入できない" do
-        @form.token = ''
+      it "telが英数混合だと購入できない" do
+        @form.tel = "a23456789012"
         @form.valid?
-        expect(@form.errors.full_messages).to include("Token can't be blank")
+        expect(@form.errors.full_messages).to include("Tel is too long (maximum is 11 characters)")
       end
+
+      it "user_idは空では購入できない" do
+        @form.user_id = ''
+        @form.valid?
+        expect(@form.errors.full_messages).to include("User can't be blank")
+      end
+
+      it "item_idは空では購入できない" do
+        @form.item_id = ''
+        @form.valid?
+        expect(@form.errors.full_messages).to include("Item can't be blank")
+      end
+
+
+
+      
     end
   end
 end
