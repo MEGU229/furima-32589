@@ -11,7 +11,7 @@ describe  Form do
 
     context '商品購入がうまくいくとき' do
 
-      it "建物名はあってもなくてもどちらでも可。建物名以外の各項目を正しく入力すれば購入できる" do
+      it "全ての値が入力されている場合、購入できる" do
         expect(@form).to be_valid
       end
 
@@ -96,16 +96,16 @@ describe  Form do
         expect(@form.errors.full_messages).to include("Item can't be blank")
       end
 
-      it "prefecture_idは空では購入できない" do
-        @form.item_id = ''
+      it "prefecture_idが1だと購入できない" do
+        @form.prefecture_id = 1
         @form.valid?
-        expect(@form.errors.full_messages).to include("Item can't be blank")
+        expect(@form.errors.full_messages).to include("Prefecture can't be blank")
       end
 
       it "prefecture_idは空では購入できない" do
-        @form.item_id = ''
+        @form.prefecture_id = ''
         @form.valid?
-        expect(@form.errors.full_messages).to include("Item can't be blank")
+        expect(@form.errors.full_messages).to include("Prefecture can't be blank")
       end
     end
   end
