@@ -34,10 +34,12 @@
   <% end %>
   <% end %>
     <%# 商品が売れていない場合はこちらを表示しましょう %>
+  <% if @item.user_id != current_user.id %>
   <% if @item.order == nil %>
     <%= link_to '購入画面に進む',item_orders_path(@item.id),class:"item-red-btn"%>
-    <%# //商品が売れていない場合はこちらを表示しましょう %>
   <% end %>
+  <% end %>
+    <%# //商品が売れていない場合はこちらを表示しましょう %>
     <%# //ログインしているユーザーと出品しているユーザーが、同一人物の場合と同一人物ではない場合で、処理を分けましょう %>
 
     <div class="item-explain-box">
