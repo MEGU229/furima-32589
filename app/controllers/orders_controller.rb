@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   before_action :set, only: [:index, :create]
 
   def index
+    redirect_to root_path if @item.order != nil
     @form = Form.new
   end
 
