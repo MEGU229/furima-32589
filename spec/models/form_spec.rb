@@ -66,12 +66,6 @@ describe  Form do
         expect(@form.errors.full_messages).to include("Tel is invalid")
       end
 
-      it "telが9桁以下だと購入できない" do
-        @form.tel = 123456789
-        @form.valid?
-        expect(@form.errors.full_messages).to include("Tel is invalid")
-      end
-
       it "telが12桁以上だと購入できない" do
         @form.tel = 123456789012
         @form.valid?
